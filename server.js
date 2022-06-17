@@ -2,15 +2,16 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-//Static middleware
-app.use(express.static(__dirname + '/public'));
+
 
 //Server
 const app = express();
-const PORT = process.env || 3001;
+const PORT = process.env || 3000;
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+//Static middleware
+app.use(express.static(__dirname + '/public'));
 
 
 //GET REQUEST to direct user to correct page depending on url
@@ -79,7 +80,7 @@ app.delete("/api/notes/:id", (req, res) => {
     if (error) {
         return console.log(error)
     }
-    
+
    let notesArray = JSON.parse(notes);
    //loop through notes array and remove note with id matching deleteId
    for (var i=0; i < notesArray.length; i++){
