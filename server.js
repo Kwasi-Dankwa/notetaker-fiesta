@@ -11,8 +11,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 //Static middleware
-app.use(express.static(__dirname + '/public'));
-
+app.use(express.static('public'));
 
 //GET REQUEST to direct user to correct page depending on url
 app.get("/", (req, res) => {
